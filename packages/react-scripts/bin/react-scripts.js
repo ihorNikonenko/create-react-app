@@ -23,7 +23,7 @@ const scriptIndex = args.findIndex(
 );
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
-
+console.log({ nodeArgs, args, scriptIndex }, 'args======');
 if (['build', 'eject', 'start', 'test'].includes(script)) {
   const result = spawn.sync(
     process.execPath,
@@ -32,6 +32,7 @@ if (['build', 'eject', 'start', 'test'].includes(script)) {
       .concat(args.slice(scriptIndex + 1)),
     { stdio: 'inherit' }
   );
+  console.log(result, 'result++++++');
   if (result.signal) {
     if (result.signal === 'SIGKILL') {
       console.log(
