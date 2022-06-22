@@ -1,11 +1,13 @@
 {
   "private": true,
+  "version": "1.5.0",
   "workspaces": [
     "packages/*",
     "docusaurus/website"
   ],
   "scripts": {
     "build": "cd packages/react-scripts && node bin/react-scripts.js build",
+    "build:prod": "echo build for prod",
     "changelog": "lerna-changelog",
     "create-react-app": "node tasks/cra.js",
     "e2e": "tasks/e2e-simple.sh",
